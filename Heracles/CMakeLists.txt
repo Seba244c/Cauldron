@@ -11,6 +11,9 @@ add_library(Heracles
         src/Heracles.h
         src/hrpch.h
         src/hrpch.cpp
+        src/Heracles/Utils/Serializer.cpp
+        src/Heracles/Utils/Serializer.h
+        src/DnD/DnD.cpp
 )
 
 target_include_directories(Heracles PUBLIC src ${Boost_INCLUDE_DIR})

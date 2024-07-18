@@ -4,8 +4,12 @@
 
 #pragma once
 
+#include "Heracles/Utils/Serializer.h"
+
 namespace Heracles::DnD {
-    struct Race {
-        std::string Name{};
+    struct Race final : Serializable {
+        [[nodiscard]] SerializedObject Serialize() const override;
+
+        std::string Name;
     };
 } // Heracles::DnD

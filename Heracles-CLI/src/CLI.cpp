@@ -8,9 +8,9 @@
 static Heracles::ContentLibrary s_ContentLib{"HeraclesCLI"};
 
 int main(int argc, char **argv) {
-    s_ContentLib.AddRace(Heracles::DnD::Race{"Dragonborn"});
+    Heracles::DnD::Race dragonborn;
+    dragonborn.Name = "Dragonborn";
+    s_ContentLib.AddRace(dragonborn);
 
-    for(Heracles::DnD::Race race : s_ContentLib.ListRaces()) {
-        std::cout << race.Name;
-    }
+    std::cout << Heracles::Serializer::Serialize(s_ContentLib);
 }

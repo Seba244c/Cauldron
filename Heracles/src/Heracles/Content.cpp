@@ -25,7 +25,7 @@ namespace Heracles {
         return m_Races[id];
     }
 
-    std::vector<DnD::Race> ContentLibrary::ListRaces() {
+    std::vector<DnD::Race> ContentLibrary::ListRaces() const {
         std::vector<DnD::Race> races;
         std::pair<std::string, DnD::Race> pair;
 
@@ -33,5 +33,13 @@ namespace Heracles {
             races.push_back(pair.second);
 
         return races;
+    }
+
+    SerializedObject ContentLibrary::Serialize() const {
+        SerializedObjectBuilder builder{"Heracles::ContentLibrary"};
+
+        builder.addObjects("Races", ListRaces());
+
+        return builder.Build();
     }
 } // Heracles
